@@ -2,11 +2,14 @@ class Invoice:
 
     def __init__(self):
         self.items = {}
+        self.itemCount = 0
 
-    def addProduct(self, qnt, price, discount):
+    def addProduct(self, qnt, price, discount, name):
         self.items['qnt'] = qnt
         self.items['unit_price'] = price
         self.items['discount'] = discount
+        self.items['name'] = name
+
         return self.items
 
     def totalImpurePrice(self, products):
@@ -25,15 +28,29 @@ class Invoice:
         return total_discount
 
     def totalPurePrice(self, products):
-        total_pure_price = self.totalImpurePrice(products)-self.totalDiscount(products)
+        total_pure_price = self.totalImpurePrice(products) - self.totalDiscount(products)
         return total_pure_price
 
     def inputAnswer(self, input_value):
         while True:
             userInput = input(input_value)
-            if userInput in ['v', 'n']:
+            if userInput in ['y', 'n']:
                 return userInput
             print("y or n! Try again.")
+
+    # added a function that displays all of the names of the products
+    def allNames(self, products):
+        names = []
+        purchases = ""
+        for k, v in products.items():
+            names.append(v['name'])
+        purchases = " | ".join(names)
+        return purchases
+
+    # added a function that saves the name of the products
+    def inputName(self, input_value):
+        userInput = input(input_value)
+        return userInput
 
     def inputNumber(self, input_value):
         while True:

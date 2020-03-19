@@ -3,8 +3,6 @@ from Invoice import Invoice
 products = {}
 total_amount = 0
 repeat = ''
-# new variable to keep track of amount of items
-# item_count = 0
 
 while True:
     # product = input("What is your product : ")
@@ -16,11 +14,13 @@ while True:
     result = Invoice().addProduct(qnt, unit_price, discount, product)
     products[product] = result
     if repeat == "n":
-        break;
+        break
 
 total_amount = Invoice().totalPurePrice(products)
 print("Your total pure price is: ", total_amount)
 
-# print the total amount of items
+# print the names of the items
 names = Invoice().allNames(products)
 print("Types of items purchased: ", names)
+# print the amount of items
+Invoice().amountOfItemsBought(products)

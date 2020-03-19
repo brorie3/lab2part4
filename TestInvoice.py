@@ -14,6 +14,7 @@ def invoice():
     invoice = Invoice()
     return invoice
 
+
 def test_CanCalculateTotalImpurePrice(invoice, products):
     invoice.totalImpurePrice(products)
     assert invoice.totalImpurePrice(products) == 75
@@ -28,6 +29,7 @@ def test_CanCalculateTotalPurePrice(invoice, products):
     invoice.totalPurePrice(products)
     assert invoice.totalPurePrice(products) == 69.38
 
-def test_allNames(invoice, products):
-    output = invoice.allNames(products)
-    assert output == "Pen | Notebook"
+
+def test_CanDisplayItemsPurchasedCorrectly(invoice, products):
+    invoice.allNames(products)
+    assert invoice.allNames(products) == "Pen | Notebook"

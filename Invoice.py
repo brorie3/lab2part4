@@ -55,6 +55,7 @@ class Invoice:
             amount += (int(v['qnt']))
 
         print("Amount of items purchased: ", amount)
+        return amount
 
     # added a function that saves the name of the products
     def inputName(self, input_value):

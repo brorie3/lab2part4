@@ -33,3 +33,8 @@ def test_CanCalculateTotalPurePrice(invoice, products):
 def test_CanDisplayItemsPurchasedCorrectly(invoice, products):
     invoice.allNames(products)
     assert invoice.allNames(products) == "Pen | Notebook"
+
+
+def test_CanCalculateAmountOfItemsBought(invoice, products):
+    invoice.amountOfItemsBought(products)
+    assert invoice.amountOfItemsBought(products) == 15

@@ -1,3 +1,6 @@
+count = 0
+
+
 class Invoice:
 
     def __init__(self):
@@ -9,7 +12,6 @@ class Invoice:
         self.items['unit_price'] = price
         self.items['discount'] = discount
         self.items['name'] = name
-
         return self.items
 
     def totalImpurePrice(self, products):
@@ -46,6 +48,13 @@ class Invoice:
             names.append(v['name'])
         purchases = " | ".join(names)
         return purchases
+
+    def amountOfItemsBought(self, products):
+        amount = 0
+        for k, v in products.items():
+            amount += (int(v['qnt']))
+
+        print("Amount of items purchased: ", amount)
 
     # added a function that saves the name of the products
     def inputName(self, input_value):
